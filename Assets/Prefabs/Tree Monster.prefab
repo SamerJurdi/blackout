@@ -48,8 +48,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movementSpeed: 2
-  _coolDownMin: 1
-  _coolDownMax: 5
+  _coolDownMin: 4
+  _coolDownMax: 10
+  _countdownSeconds: 5
 --- !u!50 &5845616409198520394
 Rigidbody2D:
   serializedVersion: 4

@@ -5,32 +5,39 @@ using UnityEngine;
 public class Enemy_Controller : MonoBehaviour
 {
     [SerializeField] float _movementSpeed = 2f;
-    [SerializeField] float _coolDownMin = 1f;
-    [SerializeField] float _coolDownMax = 5f;
+    [SerializeField] float _coolDownMin = 4f;
+    [SerializeField] float _coolDownMax = 10f;
+    [SerializeField] int _attackTimer = 5;
 
     private GameObject _player;
     private Transform _playerLocation;
     private bool isPlayerLooking = false;
-    private bool isCoolDownActive = false;
+    private bool isAttacking = false;
 
     private void updateMovement()
     {
-        if (_playerLocation && !isPlayerLooking && !isCoolDownActive) {
+        if (_playerLocation && !isPlayerLooking && isAttacking) {
             transform.position = Vector2.MoveTowards(transform.position, _playerLocation.position, _movementSpeed * Time.deltaTime);
         }
     }
     private IEnumerator delayNextAttack()
     {
-        isCoolDownActive = true;
+        isAttacking = false;
         float delay = Random.Range(_coolDownMin, _coolDownMax);
 
         yield return new WaitForSeconds(delay);
 
-        isCoolDownActive = false;
+        isAttacking = true;
+    }
+    private IEnumerator delayTheHunt()
+    {
+        yield return new WaitForSeconds(_attackTimer);
+        isAttacking = true;
     }
 
     private void Start()
     {
+        StartCoroutine(delayTheHunt());
         _player = GameObject.FindGameObjectWithTag("Player");
         _playerLocation = _player.GetComponent<Transform>();
     }
