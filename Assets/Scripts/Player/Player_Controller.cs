@@ -114,18 +114,11 @@ public class Player_Controller : MonoBehaviour
             }
         }
     }
-    private void updateDetectionConeRotation()
-    {
-        Vector3 rotation = _mousePosition - _playerPosition;
-        float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
-        _detectionCone.rotation = Quaternion.Euler(0, 0, rotZ + 90);
-    }
-
+    
     private void Update()
     {
         gatherInput();
         updateFacingDirection();
-        updateDetectionConeRotation();
     }
     private void FixedUpdate()
     {
