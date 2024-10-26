@@ -10,15 +10,22 @@ public class Enemy_Controller : MonoBehaviour
 
     private void updateMovement()
     {
-        transform.position = Vector2.MoveTowards(transform.position, _target.position, _movementSpeed * Time.deltaTime);
+        if (_target) {
+            transform.position = Vector2.MoveTowards(transform.position, _target.position, _movementSpeed * Time.deltaTime);
+        }
     }
 
     private void Start()
     {
         _target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
-    void Update()
+    private void Update()
     {
         updateMovement();
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        print("Collision detected");
+        Destroy(other.gameObject);
     }
 }
