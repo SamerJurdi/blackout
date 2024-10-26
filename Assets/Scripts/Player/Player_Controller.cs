@@ -7,6 +7,7 @@ public class Player_Controller : MonoBehaviour
     [SerializeField] Rigidbody2D _rb;
     [SerializeField] Animator _animator;
     [SerializeField] SpriteRenderer _spriteRenderer;
+    [SerializeField] Transform _detectionCone;
 
     private Vector2 _moveDir = Vector2.zero;
     private Vector3 _mousePosition = Vector3.zero;
@@ -113,11 +114,18 @@ public class Player_Controller : MonoBehaviour
             }
         }
     }
+    private void updateDetectionConeRotation()
+    {
+        Vector3 rotation = _mousePosition - _playerPosition;
+        float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
+        _detectionCone.rotation = Quaternion.Euler(0, 0, rotZ + 90);
+    }
 
     private void Update()
     {
         gatherInput();
         updateFacingDirection();
+        updateDetectionConeRotation();
     }
     private void FixedUpdate()
     {
