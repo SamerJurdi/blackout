@@ -5,10 +5,15 @@ using UnityEngine;
 public class Play_Steps : MonoBehaviour
 {
     [SerializeField] AudioClip _audioClip;
-    [SerializeField] AudioSource _audioSource;
+
+    private Audio_Controller _audioManager;
+
+    private void Awake() {
+        _audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<Audio_Controller>();
+    }
 
     void playSteps()
     {
-        _audioSource.PlayOneShot(_audioClip);
+        _audioManager.PlaySFX(_audioClip);
     }
 }
