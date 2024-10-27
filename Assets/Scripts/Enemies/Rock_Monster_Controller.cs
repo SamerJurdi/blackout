@@ -36,7 +36,6 @@ public class Rock_Monster_Controller : MonoBehaviour
 
     private IEnumerator endChaseTransition()
     {
-        Debug.Log("Hiding Start");
         isTransforming = true;
         if (isAttacking) {
             _animator.CrossFade(_animRockMonsterHide, 0);
@@ -45,19 +44,16 @@ public class Rock_Monster_Controller : MonoBehaviour
 
         yield return new WaitForSeconds(_animator.GetCurrentAnimatorStateInfo(0).length);
 
-        Debug.Log("Hidden");
         isTransforming = false;
         _animator.CrossFade(_animRockMonsterIdle, 0);
     }
     private IEnumerator beginChaseTransition()
     {
-        Debug.Log("Hunt Animation starts");
         isTransforming = true;
         _animator.CrossFade(_animRockMonsterAttack, 0);
 
         yield return new WaitForSeconds(_animator.GetCurrentAnimatorStateInfo(0).length);
 
-        Debug.Log("Chase begins");
         isTransforming = false;
         _animator.CrossFade(_animRockMonsterWalk, 0);
         isAttacking = true;
@@ -66,10 +62,8 @@ public class Rock_Monster_Controller : MonoBehaviour
     private IEnumerator delayTheHunt()
     {
         isOnCoolDown = true;
-        Debug.Log("Hunt will start soon");
         yield return new WaitForSeconds(_attackTimer);
 
-        Debug.Log("Hunt is initiated");
         isOnCoolDown = false;
         StartCoroutine(beginChaseTransition());
     }
@@ -85,7 +79,6 @@ public class Rock_Monster_Controller : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("Start");
         StartCoroutine(delayTheHunt());
         _player = GameObject.FindGameObjectWithTag("Player");
         _playerFound = _player.GetComponent<Transform>();
