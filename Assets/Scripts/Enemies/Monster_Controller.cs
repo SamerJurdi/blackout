@@ -108,7 +108,7 @@ public class Monster_Controller : MonoBehaviour
         }
         if (other.gameObject == _player && isAttacking)
         {
-            _levelController.endGame(_deathSentence);
+            _levelController.endGame(_deathSentence, false);
             Destroy(other.gameObject);
         }
     }

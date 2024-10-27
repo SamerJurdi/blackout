@@ -6,12 +6,19 @@ using UnityEngine.UI;
 
 public class Level_Controller : MonoBehaviour
 {
-    [SerializeField] GameObject pauseMenuUI;
+    [SerializeField] GameObject victoryUI;
+    [SerializeField] GameObject deathUI;
 
-    public void endGame(string message) {
-        pauseMenuUI.transform.Find("Message").GetComponent<TMPro.TextMeshProUGUI>().text = message;
-        pauseMenuUI.SetActive(true);
+    public void endGame(string message, bool isAlive) {
         Time.timeScale = 0f;
+        if (isAlive)
+        {
+            victoryUI.transform.Find("Message").GetComponent<TMPro.TextMeshProUGUI>().text = message;
+            victoryUI.SetActive(true);
+        } else {
+            deathUI.transform.Find("Message").GetComponent<TMPro.TextMeshProUGUI>().text = message;
+            deathUI.SetActive(true);
+        }
     }
     
     public void restartGame() {

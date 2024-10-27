@@ -18,7 +18,7 @@ public class Ending_Controller : MonoBehaviour
     {
         if (other.gameObject == _player)
         {
-            _levelController.endGame(_victoryMessage);
+            _levelController.endGame(_victoryMessage, true);
             Destroy(other.gameObject);
         }
     }
