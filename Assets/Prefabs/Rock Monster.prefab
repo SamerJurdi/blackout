@@ -248,5 +248,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 582798ab31b21aa49aab6d4a08871da7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _audioClip: {fileID: 8300000, guid: 1018070b4dca6d649aae376f5c0a9b92, type: 3}
-  playChance: 25
+  _audioClip: {fileID: 8300000, guid: 1d2398486502c034486f5972860b3614, type: 3}
+  playChance: 33

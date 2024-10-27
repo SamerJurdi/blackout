@@ -249,4 +249,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _audioClip: {fileID: 8300000, guid: 0470534f56576bc4880c60abaee2732e, type: 3}
-  playChance: 25
+  playChance: 33
