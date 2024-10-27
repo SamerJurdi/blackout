@@ -8,6 +8,7 @@ public class Enemy_Controller : MonoBehaviour
     [SerializeField] float _coolDownMin = 4f;
     [SerializeField] float _coolDownMax = 10f;
     [SerializeField] int _attackTimer = 5;
+    [SerializeField] Vector3 teleportPosition;
 
     private GameObject _player;
     private Transform _playerLocation;
@@ -16,10 +17,12 @@ public class Enemy_Controller : MonoBehaviour
 
     private void updateMovement()
     {
-        if (_playerLocation && !isPlayerLooking && isAttacking) {
+        if (_playerLocation && !isPlayerLooking && isAttacking)
+        {
             transform.position = Vector2.MoveTowards(transform.position, _playerLocation.position, _movementSpeed * Time.deltaTime);
         }
     }
+
     private IEnumerator delayNextAttack()
     {
         isAttacking = false;
@@ -29,6 +32,7 @@ public class Enemy_Controller : MonoBehaviour
 
         isAttacking = true;
     }
+
     private IEnumerator delayTheHunt()
     {
         yield return new WaitForSeconds(_attackTimer);
@@ -41,10 +45,12 @@ public class Enemy_Controller : MonoBehaviour
         _player = GameObject.FindGameObjectWithTag("Player");
         _playerLocation = _player.GetComponent<Transform>();
     }
+
     private void Update()
     {
         updateMovement();
     }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject == GameObject.FindGameObjectWithTag("LightBeam"))
@@ -54,9 +60,11 @@ public class Enemy_Controller : MonoBehaviour
         }
         if (other.gameObject == _player)
         {
-            Destroy(other.gameObject);
+            _player.transform.position = teleportPosition;
+            Debug.Log("Player was teleported to the specified position.");
         }
     }
+
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject == GameObject.FindGameObjectWithTag("LightBeam"))
