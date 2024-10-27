@@ -39,19 +39,39 @@ public class FlashlightController : MonoBehaviour
         }
 
         // Check if directional keys are being pressed
-        if (Input.GetKey(KeyCode.W)) // Point flashlight up
+        if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) && (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))) // Point flashlight north-west
+        {
+            targetRotation = Quaternion.Euler(0, 0, 45);
+        }
+        else if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) && (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))) // Point flashlight north-east
+        {
+            targetRotation = Quaternion.Euler(0, 0, -45);
+        }
+        else if ((Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) && (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))) // Point flashlight south-west
+        {
+            targetRotation = Quaternion.Euler(0, 0, 135);
+        }
+        else if ((Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) && (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))) // Point flashlight south-east
+        {
+            targetRotation = Quaternion.Euler(0, 0, -135);
+        }
+        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) // Point flashlight right
+        {
+            targetRotation = Quaternion.Euler(0, 0, -90);
+        }
+        else if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) // Point flashlight up
         {
             targetRotation = Quaternion.Euler(0, 0, 0);
         }
-        else if (Input.GetKey(KeyCode.S)) // Point flashlight down
+        else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) // Point flashlight down
         {
             targetRotation = Quaternion.Euler(0, 0, 180);
         }
-        else if (Input.GetKey(KeyCode.A)) // Point flashlight left
+        else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) // Point flashlight left
         {
             targetRotation = Quaternion.Euler(0, 0, 90);
         }
-        else if (Input.GetKey(KeyCode.D)) // Point flashlight right
+        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) // Point flashlight right
         {
             targetRotation = Quaternion.Euler(0, 0, -90);
         }
