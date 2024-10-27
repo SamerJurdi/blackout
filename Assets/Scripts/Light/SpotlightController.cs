@@ -66,14 +66,14 @@ public class FlashlightController : MonoBehaviour
 
             if (isMoving)
             {
-                Debug.Log("Player is moving.");
+                //Debug.Log("Player is moving.");
                 // When moving, fix flashlight in the direction of movement
                 float angle = Mathf.Atan2(playerMovement.y, playerMovement.x) * Mathf.Rad2Deg - 90f;
                 targetRotation = Quaternion.Euler(0, 0, angle);
             }
             else
             {
-                Debug.Log("Player is stationary.");
+                //Debug.Log("Player is stationary.");
                 // When not moving, rotate flashlight toward the mouse
                 Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 mousePosition.z = 0;  // Keep it in 2D space
