@@ -106,7 +106,7 @@ public class Monster_Controller : MonoBehaviour
             isPlayerLooking = true;
             StartCoroutine(endChaseTransition());
         }
-        if (other.gameObject == _player)
+        if (other.gameObject == _player && isAttacking)
         {
             _levelController.endGame(_deathSentence);
             Destroy(other.gameObject);
