@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bd65074cbb9f744a8f9b24dba6a3d8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _deathSentence: You got smashed!
   _movementSpeed: 1
   _coolDownMin: 4
   _coolDownMax: 10

@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e80ab97748b14d4a91970799a91f46f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementSpeed: 100
+  _movementSpeed: 50
   _rb: {fileID: 5845616409198520394}
   _animator: {fileID: 8729352393421640175}
   _spriteRenderer: {fileID: 4846697824883301741}
@@ -441,4 +441,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _audioClip: {fileID: 8300000, guid: ac0f90bf7ce9ef14b9b2ec1b56858ee2, type: 3}
-  _audioSource: {fileID: 0}

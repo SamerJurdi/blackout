@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Monster_Controller : MonoBehaviour
 {
+    [SerializeField] string _deathSentence = "You dead!"; 
     [SerializeField] float _movementSpeed = 1f;
     [SerializeField] float _coolDownMin = 4f;
     [SerializeField] float _coolDownMax = 10f;
@@ -16,6 +17,7 @@ public class Monster_Controller : MonoBehaviour
 
     private GameObject _player;
     private Transform _playerFound;
+    private Level_Controller _levelController;
 
     private bool isPlayerLooking = false;
     private bool isAttacking = false;
@@ -90,6 +92,7 @@ public class Monster_Controller : MonoBehaviour
         StartCoroutine(delayTheHunt());
         _player = GameObject.FindGameObjectWithTag("Player");
         _playerFound = _player.GetComponent<Transform>();
+        _levelController = GameObject.FindGameObjectWithTag("Level").GetComponent<Level_Controller>();
     }
     private void Update()
     {
@@ -105,6 +108,7 @@ public class Monster_Controller : MonoBehaviour
         }
         if (other.gameObject == _player)
         {
+            _levelController.endGame(_deathSentence);
             Destroy(other.gameObject);
         }
     }
