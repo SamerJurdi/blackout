@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6268941035947597183}
-  - component: {fileID: 7551803870401284936}
+  - component: {fileID: -4950353797804177551}
   - component: {fileID: 5845616409198520394}
   - component: {fileID: 9105866631404703155}
   m_Layer: 0
@@ -35,7 +35,7 @@ Transform:
   - {fileID: 201036201693167021}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7551803870401284936
+--- !u!114 &-4950353797804177551
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,7 +44,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3609457749285681374}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a7cbafc773c38f4092b230cbb637d18, type: 3}
+  m_Script: {fileID: 11500000, guid: 8bd65074cbb9f744a8f9b24dba6a3d8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _movementSpeed: 1
@@ -52,6 +52,10 @@ MonoBehaviour:
   _coolDownMax: 10
   _attackTimer: 5
   _animator: {fileID: 268861821575993124}
+  _idleAnimationClip: {fileID: 7400000, guid: dc20524994c87f545b501907a1c9c155, type: 2}
+  _attackAnimationClip: {fileID: 7400000, guid: 76d782ad46e7c1f42ba81b1e9b811a5a, type: 2}
+  _walkAnimationClip: {fileID: 7400000, guid: e60dd028d221fc341af830397da81521, type: 2}
+  _hideAnimationClip: {fileID: 7400000, guid: 3b3197db8affa53458c4ea3fc5ee7131, type: 2}
 --- !u!50 &5845616409198520394
 Rigidbody2D:
   serializedVersion: 4
