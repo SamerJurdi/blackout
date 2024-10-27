@@ -52,7 +52,6 @@ MonoBehaviour:
   _rb: {fileID: 5845616409198520394}
   _animator: {fileID: 8729352393421640175}
   _spriteRenderer: {fileID: 4846697824883301741}
-  _detectionCone: {fileID: 8195302125087774762}
 --- !u!50 &5845616409198520394
 Rigidbody2D:
   serializedVersion: 4
@@ -427,7 +426,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.3
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -525,3 +524,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audioClip: {fileID: 8300000, guid: ac0f90bf7ce9ef14b9b2ec1b56858ee2, type: 3}
   _audioSource: {fileID: 4907634153823600531}
+  playChance: 100

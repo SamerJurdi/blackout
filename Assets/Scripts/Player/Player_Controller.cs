@@ -7,7 +7,6 @@ public class Player_Controller : MonoBehaviour
     [SerializeField] Rigidbody2D _rb;
     [SerializeField] Animator _animator;
     [SerializeField] SpriteRenderer _spriteRenderer;
-    [SerializeField] Transform _detectionCone;
 
     private Vector2 _moveDir = Vector2.zero;
     private Vector3 _mousePosition = Vector3.zero;
